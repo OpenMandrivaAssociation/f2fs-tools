@@ -73,6 +73,7 @@ rm -f %{buildroot}/%{_libdir}/*.la
 
 %files
 %doc COPYING AUTHORS ChangeLog
+%{_sbindir}/defrag.f2fs
 %{_sbindir}/mkfs.f2fs
 %{_sbindir}/fibmap.f2fs
 %{_sbindir}/fsck.f2fs
