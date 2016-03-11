@@ -1,3 +1,7 @@
+%define major 0
+%define libname %mklibname f2fs %{major}
+%define devname %mklibname f2fs -d
+
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Version:	1.6.0
 Release:	1
@@ -5,6 +9,7 @@ License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/f2fs-tools/
 Source0:	http://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/%{name}-%{version}.tar.gz
+BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
 
 %description
@@ -29,14 +34,22 @@ scheme aka FTL, we add various parameters not only for configuring
 on-disk layout, but also for selecting allocation
 and cleaning algorithms.
 
-%package devel
-Summary:	Development files for %{name}
-Group:		Development/C
-Requires:	%{name}= %{EVRD}
+%package -n	%{libname}
+Summary:	Libraries for Flash-Friendly File System (F2FS)
+Group:		System/Libraries
 
-%description devel
+%description -n	%{libname}
+This package contains the libraries for Flash-Friendly File System (F2FS)
+
+%package -n	%{devname}
+Summary:	Development files for %{name}
+Group:		System/Libraries
+Provides:	%{name}-devel = %{EVRD}
+Requires:	%{libname} = %{EVRD}
+
+%description -n	%{devname}
 This package contains the libraries needed to develop applications
-that use %{name}.
+that use %{name}
 
 %prep
 %setup -q
@@ -65,9 +78,11 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_sbindir}/dump.f2fs
 %{_sbindir}/parse.f2fs
 %{_sbindir}/f2fstat
-%{_libdir}/*.so.*
 %{_mandir}/man8/mkfs.f2fs.8*
 
-%files devel
+%files -n %{libname}
+%{_libdir}/*.so.%{major}*
+
+%files -n %{devname}
 %{_includedir}/*.h
 %{_libdir}/*.so
