@@ -3,6 +3,7 @@
 %define devname %mklibname f2fs -d
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
+Name:		f2fs-tools
 Version:	1.6.0
 Release:	1
 License:	GPLv2+
