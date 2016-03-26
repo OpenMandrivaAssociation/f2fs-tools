@@ -4,7 +4,7 @@
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
-Version:	1.6.0
+Version:	1.6.1
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
@@ -80,7 +80,7 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_sbindir}/dump.f2fs
 %{_sbindir}/parse.f2fs
 %{_sbindir}/f2fstat
-%{_mandir}/man8/mkfs.f2fs.8*
+%{_mandir}/man8/*.8.*
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
