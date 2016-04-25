@@ -58,7 +58,7 @@ that use %{name}
 %build
 ./autogen.sh
 
-%configure \
+%configure2_5x \
 	--disable-static
 
 %make
