@@ -4,7 +4,7 @@
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
-Version:	1.6.1
+Version:	1.7.0
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
