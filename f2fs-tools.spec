@@ -12,6 +12,7 @@ URL:		http://sourceforge.net/projects/f2fs-tools/
 Source0:	http://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
+BuildRequires:	pkgconfig(libselinux)
 
 %description
 NAND flash memory-based storage devices, such as SSD, and SD cards,
