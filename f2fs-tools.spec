@@ -13,6 +13,7 @@ Source0:	http://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/snap
 BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
 BuildRequires:	pkgconfig(libselinux)
+BuildRequires:	pkgconfig(libsepol)
 
 %description
 NAND flash memory-based storage devices, such as SSD, and SD cards,
