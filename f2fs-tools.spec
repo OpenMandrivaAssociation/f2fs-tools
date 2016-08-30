@@ -101,7 +101,7 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_libdir}/libf2fs.so.%{major}*
 
 %files -n %{libformat}
-%{_libdir}/libf2fs_format.so.%{format_major}
+%{_libdir}/libf2fs_format.so.%{format_major}*
 
 %files -n %{devname}
 %{_includedir}/*.h
