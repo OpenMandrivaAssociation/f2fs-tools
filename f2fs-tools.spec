@@ -98,10 +98,10 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_mandir}/man8/*.8.*
 
 %files -n %{libname}
-%{_libdir}/lib*%{name}.so.%{major}*
+%{_libdir}/libf2fs.so.%{major}*
 
 %files -n %{libformat}
-%{_libdir}/lib*%{name}_format.so.%{format_major}
+%{_libdir}/libf2fs_format.so.%{format_major}
 
 %files -n %{devname}
 %{_includedir}/*.h
