@@ -1,5 +1,7 @@
 %define major 1
+%define format_major 1
 %define libname %mklibname f2fs %{major}
+%define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
@@ -43,17 +45,25 @@ Group:		System/Libraries
 Obsoletes:	%{mklibname f2fs 0} < 1.7.0
 
 %description -n	%{libname}
-This package contains the libraries for Flash-Friendly File System (F2FS)
+This package contains the libraries for Flash-Friendly File System (F2FS).
+
+%package -n	%{libformat}
+Summary:	Format library for Flash-Friendly File System (F2FS)
+Group:		System/Libraries
+
+%description -n	%{libformat}
+This package contains the format library for Flash-Friendly File System (F2FS).
 
 %package -n	%{devname}
 Summary:	Development files for %{name}
 Group:		System/Libraries
 Provides:	%{name}-devel = %{EVRD}
 Requires:	%{libname} = %{EVRD}
+Requires:	%{libformat} = %{EVRD}
 
 %description -n	%{devname}
 This package contains the libraries needed to develop applications
-that use %{name}
+that use %{name}.
 
 %prep
 %setup -q
@@ -88,7 +98,10 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_mandir}/man8/*.8.*
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+%{_libdir}/lib*%{name}.so.%{major}*
+
+%files -n %{libformat}
+%{_libdir}/lib*%{name}_format.so.%{format_major}
 
 %files -n %{devname}
 %{_includedir}/*.h
