@@ -1,4 +1,4 @@
-%define major 0
+%define major 1
 %define libname %mklibname f2fs %{major}
 %define devname %mklibname f2fs -d
 
@@ -40,6 +40,7 @@ and cleaning algorithms.
 %package -n	%{libname}
 Summary:	Libraries for Flash-Friendly File System (F2FS)
 Group:		System/Libraries
+Obsoletes:	%{mklibname f2fs 0} < 1.7.0
 
 %description -n	%{libname}
 This package contains the libraries for Flash-Friendly File System (F2FS)
@@ -82,6 +83,8 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_sbindir}/dump.f2fs
 %{_sbindir}/parse.f2fs
 %{_sbindir}/f2fstat
+%{_sbindir}/resize.f2fs
+%{_sbindir}/sload.f2fs
 %{_mandir}/man8/*.8.*
 
 %files -n %{libname}
