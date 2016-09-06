@@ -1,10 +1,12 @@
-%define major 0
+%define major 1
+%define format_major 0
 %define libname %mklibname f2fs %{major}
+%define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
-Version:	1.6.1
+Version:	1.7.0
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
@@ -12,6 +14,8 @@ URL:		http://sourceforge.net/projects/f2fs-tools/
 Source0:	http://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
+BuildRequires:	pkgconfig(libselinux)
+BuildRequires:	pkgconfig(libsepol)
 
 %description
 NAND flash memory-based storage devices, such as SSD, and SD cards,
@@ -38,19 +42,28 @@ and cleaning algorithms.
 %package -n	%{libname}
 Summary:	Libraries for Flash-Friendly File System (F2FS)
 Group:		System/Libraries
+Obsoletes:	%{mklibname f2fs 0} < 1.7.0
 
 %description -n	%{libname}
-This package contains the libraries for Flash-Friendly File System (F2FS)
+This package contains the libraries for Flash-Friendly File System (F2FS).
+
+%package -n	%{libformat}
+Summary:	Format library for Flash-Friendly File System (F2FS)
+Group:		System/Libraries
+
+%description -n	%{libformat}
+This package contains the format library for Flash-Friendly File System (F2FS).
 
 %package -n	%{devname}
 Summary:	Development files for %{name}
 Group:		System/Libraries
 Provides:	%{name}-devel = %{EVRD}
 Requires:	%{libname} = %{EVRD}
+Requires:	%{libformat} = %{EVRD}
 
 %description -n	%{devname}
 This package contains the libraries needed to develop applications
-that use %{name}
+that use %{name}.
 
 %prep
 %setup -q
@@ -80,10 +93,15 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_sbindir}/dump.f2fs
 %{_sbindir}/parse.f2fs
 %{_sbindir}/f2fstat
+%{_sbindir}/resize.f2fs
+%{_sbindir}/sload.f2fs
 %{_mandir}/man8/*.8.*
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+%{_libdir}/libf2fs.so.%{major}*
+
+%files -n %{libformat}
+%{_libdir}/libf2fs_format.so.%{format_major}*
 
 %files -n %{devname}
 %{_includedir}/*.h
