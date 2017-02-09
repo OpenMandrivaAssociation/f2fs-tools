@@ -6,7 +6,7 @@
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
-Version:	1.7.0
+Version:	1.8.0
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
@@ -85,7 +85,7 @@ install -m 644 mkfs/f2fs_format_utils.h %{buildroot}%{_includedir}
 rm -f %{buildroot}/%{_libdir}/*.la
 
 %files
-%doc COPYING AUTHORS ChangeLog
+%doc AUTHORS
 %{_sbindir}/defrag.f2fs
 %{_sbindir}/mkfs.f2fs
 %{_sbindir}/fibmap.f2fs
