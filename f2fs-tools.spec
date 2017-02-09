@@ -7,7 +7,7 @@
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
 Version:	1.8.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/f2fs-tools/
@@ -16,6 +16,8 @@ BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
 BuildRequires:	pkgconfig(libselinux)
 BuildRequires:	pkgconfig(libsepol)
+Requires:	%{libname} = %{EVRD}
+Requires:	%{libformat} = %{EVRD}
 
 %description
 NAND flash memory-based storage devices, such as SSD, and SD cards,
