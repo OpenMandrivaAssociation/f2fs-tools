@@ -1,13 +1,13 @@
-%define major 2
-%define format_major 1
+%define major 3
+%define format_major 2
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
-Version:	1.8.0
-Release:	2
+Version:	1.9.0
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/f2fs-tools/
@@ -44,7 +44,9 @@ and cleaning algorithms.
 %package -n	%{libname}
 Summary:	Libraries for Flash-Friendly File System (F2FS)
 Group:		System/Libraries
-Obsoletes:	%{mklibname f2fs 0} < 1.7.0
+Obsoletes:	%{mklibname f2fs 0} < 1.9.0
+Obsoletes:	%{mklibname f2fs 1} < 1.9.0
+Obsoletes:	%{mklibname f2fs 2} < 1.9.0
 
 %description -n	%{libname}
 This package contains the libraries for Flash-Friendly File System (F2FS).
@@ -52,6 +54,8 @@ This package contains the libraries for Flash-Friendly File System (F2FS).
 %package -n	%{libformat}
 Summary:	Format library for Flash-Friendly File System (F2FS)
 Group:		System/Libraries
+Obsoletes:	%{mklibname f2fs_format 0} < 1.9.0
+Obsoletes:	%{mklibname f2fs_format 1} < 1.9.0
 
 %description -n	%{libformat}
 This package contains the format library for Flash-Friendly File System (F2FS).
@@ -88,6 +92,7 @@ rm -f %{buildroot}/%{_libdir}/*.la
 
 %files
 %doc AUTHORS
+%{_sbindir}/f2fscrypt
 %{_sbindir}/defrag.f2fs
 %{_sbindir}/mkfs.f2fs
 %{_sbindir}/fibmap.f2fs
