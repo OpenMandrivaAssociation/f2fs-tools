@@ -92,6 +92,7 @@ rm -f %{buildroot}/%{_libdir}/*.la
 
 %files
 %doc AUTHORS
+%{_sbindir}/f2fscrypt
 %{_sbindir}/defrag.f2fs
 %{_sbindir}/mkfs.f2fs
 %{_sbindir}/fibmap.f2fs
