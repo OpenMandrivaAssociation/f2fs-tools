@@ -3,6 +3,7 @@
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
+%define _disable_lto 1
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
