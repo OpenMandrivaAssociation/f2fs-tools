@@ -3,7 +3,9 @@
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
-%define _disable_lto 1
+# (tpg) try to fix 
+# /tmp/lto-llvm-02ea2e.o:ld-temp.o:function main: error: undefined reference to 'blkid_new_probe_from_filename'
+%define _disable_ld_no_undefined 1
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
