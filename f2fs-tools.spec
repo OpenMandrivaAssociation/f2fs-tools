@@ -1,5 +1,5 @@
-%define major 3
-%define format_major 2
+%define major 4
+%define format_major 3
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
@@ -14,8 +14,10 @@ URL:		http://sourceforge.net/projects/f2fs-tools/
 Source0:	http://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
+BuildRequires:	pkgconfig(blkid)
 BuildRequires:	pkgconfig(libselinux)
 BuildRequires:	pkgconfig(libsepol)
+BuildRequires:	acl-devel
 Requires:	%{libname} = %{EVRD}
 Requires:	%{libformat} = %{EVRD}
 
