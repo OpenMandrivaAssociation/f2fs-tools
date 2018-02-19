@@ -6,7 +6,7 @@
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
-Version:	1.9.0
+Version:	1.10.0
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
@@ -41,33 +41,33 @@ scheme aka FTL, we add various parameters not only for configuring
 on-disk layout, but also for selecting allocation
 and cleaning algorithms.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	Libraries for Flash-Friendly File System (F2FS)
 Group:		System/Libraries
 Obsoletes:	%{mklibname f2fs 0} < 1.9.0
 Obsoletes:	%{mklibname f2fs 1} < 1.9.0
 Obsoletes:	%{mklibname f2fs 2} < 1.9.0
 
-%description -n	%{libname}
+%description -n %{libname}
 This package contains the libraries for Flash-Friendly File System (F2FS).
 
-%package -n	%{libformat}
+%package -n %{libformat}
 Summary:	Format library for Flash-Friendly File System (F2FS)
 Group:		System/Libraries
 Obsoletes:	%{mklibname f2fs_format 0} < 1.9.0
 Obsoletes:	%{mklibname f2fs_format 1} < 1.9.0
 
-%description -n	%{libformat}
+%description -n %{libformat}
 This package contains the format library for Flash-Friendly File System (F2FS).
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Development files for %{name}
 Group:		System/Libraries
 Provides:	%{name}-devel = %{EVRD}
 Requires:	%{libname} = %{EVRD}
 Requires:	%{libformat} = %{EVRD}
 
-%description -n	%{devname}
+%description -n %{devname}
 This package contains the libraries needed to develop applications
 that use %{name}.
 
