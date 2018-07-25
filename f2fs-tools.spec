@@ -1,5 +1,5 @@
-%define major 4
-%define format_major 3
+%define major 5
+%define format_major 4
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
@@ -9,7 +9,7 @@
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
-Version:	1.10.0
+Version:	1.11.0
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
@@ -107,6 +107,7 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_sbindir}/f2fstat
 %{_sbindir}/resize.f2fs
 %{_sbindir}/sload.f2fs
+%{_sbindir}/sg_write_buffer
 %{_mandir}/man8/*.8.*
 
 %files -n %{libname}
