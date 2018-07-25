@@ -107,6 +107,7 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_sbindir}/f2fstat
 %{_sbindir}/resize.f2fs
 %{_sbindir}/sload.f2fs
+%{_sbindir}/sg_write_buffer
 %{_mandir}/man8/*.8.*
 
 %files -n %{libname}
