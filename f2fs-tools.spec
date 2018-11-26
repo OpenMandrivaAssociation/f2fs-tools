@@ -1,5 +1,5 @@
-%define major 5
-%define format_major 4
+%define major 6
+%define format_major 5
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
@@ -9,8 +9,8 @@
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
-Version:	1.11.0
-Release:	2
+Version:	1.12.0
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/f2fs-tools/
