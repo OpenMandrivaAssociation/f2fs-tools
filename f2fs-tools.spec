@@ -10,7 +10,7 @@
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
 Version:	1.12.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/f2fs-tools/
@@ -18,7 +18,6 @@ Source0:	http://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/snap
 BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
 BuildRequires:	pkgconfig(blkid)
-BuildRequires:	pkgconfig(libselinux)
 BuildRequires:	pkgconfig(libsepol)
 BuildRequires:	acl-devel
 Requires:	%{libname} = %{EVRD}
@@ -83,7 +82,8 @@ that use %{name}.
 ./autogen.sh
 
 %configure \
-	--disable-static
+	--disable-static \
+	--without-selinux
 
 %make
 
