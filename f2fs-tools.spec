@@ -1,5 +1,5 @@
-%define major 6
-%define format_major 5
+%define major 7
+%define format_major 6
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
@@ -108,6 +108,7 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_sbindir}/resize.f2fs
 %{_sbindir}/sload.f2fs
 %{_sbindir}/sg_write_buffer
+%{_sbindir}/f2fs_io
 %{_mandir}/man8/*.8.*
 
 %files -n %{libname}
