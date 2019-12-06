@@ -3,7 +3,7 @@
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
-%define optflags %{optflags} -Oz
+%global optflags %{optflags} -Oz
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
