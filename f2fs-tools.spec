@@ -3,14 +3,12 @@
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
-# (tpg) try to fix 
-# /tmp/lto-llvm-02ea2e.o:ld-temp.o:function main: error: undefined reference to 'blkid_new_probe_from_filename'
-%define _disable_ld_no_undefined 1
+%define optflags %{optflags} -Oz
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
 Version:	1.13.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/f2fs-tools/
@@ -76,7 +74,7 @@ This package contains the libraries needed to develop applications
 that use %{name}.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 ./autogen.sh
@@ -85,10 +83,10 @@ that use %{name}.
 	--disable-static \
 	--without-selinux
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 mkdir -m 755 -p %{buildroot}%{_includedir}
 install -m 644 include/f2fs_fs.h %{buildroot}%{_includedir}
