@@ -1,5 +1,5 @@
-%define major 7
-%define format_major 6
+%define major 8
+%define format_major 7
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
