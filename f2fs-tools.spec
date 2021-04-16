@@ -8,11 +8,12 @@
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
 Version:	1.14.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/f2fs-tools/
 Source0:	http://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/%{name}-%{version}.tar.gz
+Patch0:		https://src.fedoraproject.org/rpms/f2fs-tools/raw/rawhide/f/f2fs-tools-1.8.0-bigendian.patch
 BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
 BuildRequires:	pkgconfig(blkid)
@@ -75,6 +76,7 @@ that use %{name}.
 
 %prep
 %autosetup -p1
+sed -i 's/AC_PROG_LIBTOOL/LT_INIT/' configure.ac
 
 %build
 ./autogen.sh
