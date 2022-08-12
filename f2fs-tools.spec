@@ -1,5 +1,5 @@
-%define major 8
-%define format_major 7
+%define major 9
+%define format_major 8
 %define libname %mklibname f2fs %{major}
 %define libformat %mklibname f2fs_format %{format_major}
 %define devname %mklibname f2fs -d
@@ -7,18 +7,17 @@
 
 Summary:	Tools for Flash-Friendly File System (F2FS)
 Name:		f2fs-tools
-Version:	1.14.0
-Release:	2
+Version:	1.15.0
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/f2fs-tools/
 Source0:	http://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/%{name}-%{version}.tar.gz
-Patch0:		https://src.fedoraproject.org/rpms/f2fs-tools/raw/rawhide/f/f2fs-tools-1.8.0-bigendian.patch
 BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
 BuildRequires:	pkgconfig(blkid)
 BuildRequires:	pkgconfig(libsepol)
-BuildRequires:	acl-devel
+BuildRequires:	pkgconfig(libacl)
 Requires:	%{libname} = %{EVRD}
 Requires:	%{libformat} = %{EVRD}
 
@@ -76,7 +75,6 @@ that use %{name}.
 
 %prep
 %autosetup -p1
-sed -i 's/AC_PROG_LIBTOOL/LT_INIT/' configure.ac
 
 %build
 ./autogen.sh
@@ -109,7 +107,8 @@ rm -f %{buildroot}/%{_libdir}/*.la
 %{_sbindir}/sload.f2fs
 %{_sbindir}/sg_write_buffer
 %{_sbindir}/f2fs_io
-%{_mandir}/man8/*.8.*
+%{_sbindir}/f2fslabel
+%doc %{_mandir}/man8/*.8.*
 
 %files -n %{libname}
 %{_libdir}/libf2fs.so.%{major}*
