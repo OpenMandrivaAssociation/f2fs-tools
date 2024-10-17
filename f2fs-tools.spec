@@ -11,7 +11,7 @@ Version:	1.16.0
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
-URL:		http://sourceforge.net/projects/f2fs-tools/
+URL:		https://sourceforge.net/projects/f2fs-tools/
 Source0:	http://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(ossp-uuid)
 BuildRequires:	pkgconfig(uuid)
